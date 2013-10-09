@@ -23,16 +23,20 @@ import org.springframework.web.servlet.ModelAndView;
  * @author jose_cerna
  * 
  */
-@Controller("deudaController")
+@Controller
 public class DeudaController {
     
     @Autowired
     private DeudaDao objDeudaDao;
     private static Logger log = LoggerFactory.getLogger(DeudaController.class);
     
-    @RequestMapping("/ListarDeudas")
+    @RequestMapping("/ListarDeudas.htm")
+	public void inicio() {
+    }
+    
+    @RequestMapping(value = "/ListarDeudas.htm", method = RequestMethod.POST)
     public ModelAndView ListarAlumnos() {
-        ModelAndView mav = new ModelAndView("/ListarDeudas");
+        ModelAndView mav = new ModelAndView("/ListarDeudas.htm");
         List<Deuda> deudas = objDeudaDao.getListDeudas();
         mav.addObject("deuda", deudas);
         return mav;
