@@ -40,6 +40,17 @@ private static Logger log = LoggerFactory.getLogger(DeudaDaoImpl.class);
                 "Select idDeuda,ruc,concepto,periodoTributario,resolucion,codTributo,importePago from deudas",
                 new BeanPropertyRowMapper<Deuda>(Deuda.class));
     }
+
+    @Override
+    public Deuda getListDeudasxRuc(String Ruc) {  
+        try {
+            return getSimpleJdbcTemplate().queryForObject(
+                    "select idDeuda,ruc,concepto,periodoTributario,resolucion,codTributo,importePago from deudas where ruc=?",
+                    new BeanPropertyRowMapper<Deuda>(Deuda.class), Ruc);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
     
 
 }

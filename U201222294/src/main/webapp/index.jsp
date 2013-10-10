@@ -12,6 +12,6 @@
     </head>
     <body>
         Cargando....
-        <a href="ListarDeudas.htm">Lista de Productos</a>
+        <a href="ListarDeudas.htm">Lista de Deudas</a>
     </body>
 </html>
